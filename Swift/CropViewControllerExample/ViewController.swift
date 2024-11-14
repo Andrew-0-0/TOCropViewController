@@ -22,41 +22,42 @@ class ViewController: UIViewController, CropViewControllerDelegate, UIImagePicke
         guard let image = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
         
         let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
-        //cropController.modalPresentationStyle = .fullScreen
+        cropController.modalPresentationStyle = .fullScreen
         cropController.delegate = self
+        cropController.cropView.backgroundColor = UIColor.white
         
         // Uncomment this if you wish to provide extra instructions via a title label
-        //cropController.title = "Crop Image"
+        cropController.title = "Crop Image"
     
         // -- Uncomment these if you want to test out restoring to a previous crop setting --
-        //cropController.angle = 90 // The initial angle in which the image will be rotated
-        //cropController.imageCropFrame = CGRect(x: 0, y: 0, width: 2848, height: 4288) //The initial frame that the crop controller will have visible.
+        cropController.angle = 90 // The initial angle in which the image will be rotated
+        cropController.imageCropFrame = CGRect(x: 0, y: 0, width: 2848, height: 4288) //The initial frame that the crop controller will have visible.
     
         // -- Uncomment the following lines of code to test out the aspect ratio features --
-        //cropController.aspectRatioPreset = .presetSquare; //Set the initial aspect ratio as a square
-        //cropController.aspectRatioLockEnabled = true // The crop box is locked to the aspect ratio and can't be resized away from it
-        //cropController.resetAspectRatioEnabled = false // When tapping 'reset', the aspect ratio will NOT be reset back to default
-        //cropController.aspectRatioPickerButtonHidden = true
+        cropController.aspectRatioPreset = .presetSquare; //Set the initial aspect ratio as a square
+        cropController.aspectRatioLockEnabled = true // The crop box is locked to the aspect ratio and can't be resized away from it
+        cropController.resetAspectRatioEnabled = false // When tapping 'reset', the aspect ratio will NOT be reset back to default
+        cropController.aspectRatioPickerButtonHidden = true
     
         // -- Uncomment this line of code to place the toolbar at the top of the view controller --
-        //cropController.toolbarPosition = .top
+        cropController.toolbarPosition = .top
     
-        //cropController.rotateButtonsHidden = true
-        //cropController.rotateClockwiseButtonHidden = true
+        cropController.rotateButtonsHidden = true
+        cropController.rotateClockwiseButtonHidden = true
     
-        //cropController.doneButtonTitle = "Title"
-        //cropController.cancelButtonTitle = "Title"
+        cropController.doneButtonTitle = "Title"
+        cropController.cancelButtonTitle = "Title"
         
         //cropController.toolbar.doneButtonHidden = true
-        //cropController.toolbar.cancelButtonHidden = true
-        //cropController.toolbar.clampButtonHidden = true
+        cropController.toolbar.cancelButtonHidden = true
+        cropController.toolbar.clampButtonHidden = true
 
         // Set toolbar action button colors
-        // cropController.doneButtonColor = UIColor.red
-        // cropController.cancelButtonColor = UIColor.green
+         cropController.doneButtonColor = UIColor.red
+         cropController.cancelButtonColor = UIColor.green
 
         // Change toolbar layout direction
-        // cropController.toolbar.reverseContentLayout = true
+         cropController.toolbar.reverseContentLayout = true
 
         self.image = image
         
